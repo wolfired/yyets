@@ -1,19 +1,18 @@
 root="$(dirname $0)"
 
-source $root/config.sh
-source $root/ipfs.sh
-source $root/pinata.sh
+source ~/workspace_git/linuxcfg/utils/config.sh
+source ~/workspace_git/linuxcfg/utils/ipfs/apis.sh
+source ~/workspace_git/linuxcfg/utils/pinata/apis.sh
 
-ipfs_gen_key
+source ./config.sh
 
-# if [[ ! -n $(ipfs_is_running) ]]; then
-#     echo "ipfs is stop"
-#     exit 1
-# fi
+ipfs_gen_key $ipfs_key_name $ipfs_key_file
 
-# unpin_all
-pin_all ./out
+pinata_unpin_all
+pinata_pin_all ./web/dist
 
-# dir_hash=$(ipfs_add_dir ./out)
-# ipfs_cp_dir $dir_hash $ipfs_host_dir
-# ipfs_name $dir_hash
+echo ""
+
+dir_hash=$(ipfs_add_dir ./web/dist)
+ipfs_cp_dir $dir_hash $ipfs_host_dir
+ipfs_name_publish $dir_hash $ipfs_key_name
