@@ -1,0 +1,6 @@
+/out/*
+!/out/index.html
+!/out/index.js
+
+/*.key
+/*.zip
