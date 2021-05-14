@@ -8,7 +8,7 @@ source ./config.sh
 
 ipfs_gen_key $ipfs_key_name $ipfs_key_file
 
-pinata_unpin_all
+pinata_unpin_all $ipfs_key_name
 pinata_pin_all ./web/dist
 
 echo ""
