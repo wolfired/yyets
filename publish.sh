@@ -1,8 +1,8 @@
 root="$(dirname $0)"
 
 source ~/workspace_git/linuxcfg/utils/config.sh
-source ~/workspace_git/linuxcfg/utils/ipfs/apis.sh
-source ~/workspace_git/linuxcfg/utils/pinata/apis.sh
+source ~/workspace_git/linuxcfg/utils/ipfs/lab.sh
+source ~/workspace_git/linuxcfg/utils/pinata/lab.sh
 
 source ./config.sh
 
